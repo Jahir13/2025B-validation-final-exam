@@ -12,10 +12,10 @@ services:
       - SONARQUBE_JDBC_USERNAME=sonar
       - SONARQUBE_JDBC_PASSWORD=sonar
     volumes:
-      - ./sonarqube_conf:/opt/sonarqube/conf
-      - ./sonarqube_data:/opt/sonarqube/data
-      - ./sonarqube_extensions:/opt/sonarqube/extensions
-      - ./sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
        
   db:
     image: postgres
@@ -25,8 +25,8 @@ services:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
     volumes:
-      - ./postgresql:/var/lib/postgresql
-      - ./postgresql_data:/var/lib/postgresql/data
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
        
 networks:
   sonarnet:
